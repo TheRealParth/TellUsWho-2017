@@ -9,7 +9,7 @@ import {Dnd} from "ng2-dnd";
 @Component({
   selector: 'social',
   template: `
-  
+
 <div class="contactsContainer" style="margin-top: 13%;">
   <div class="contacts">
     <ul class="socialTabs nav nav-pills nav-justified">
@@ -27,14 +27,14 @@ import {Dnd} from "ng2-dnd";
      If the contact is already in the dropbox, you can simple click the contact to add them to the  <span [style.color]="obj.color"><b><span [style.border-bottom-color]="addColor(tagsArray[currentQues],'triangle')" [style.background-color]="addColor(tagsArray[currentQues],'background')" class="inlineSymbol" [ngClass]="{'tagCircle':tagsArray[currentQues].symbol=='tagCircle', 'tagTriangle':tagsArray[currentQues].symbol=='tagTriangle', 'tagSquare':tagsArray[currentQues].symbol=='tagSquare'}"></span>{{obj.group}}</b></span> group. <br>
      If you want to remove the contact from the current group, click the contact again.<br> At the end of this series of questions, you'll be able to review and change all of the contacts and their groups.
     </p>
-    
+
 </div>
 <input  class="zoom-slider pull-right" type="range" (change)="log($event.target.value)" style="width: 20%;"/>
-      <div   dnd-droppable [dropZones]="['people']" (onDropSuccess)="addContact($event)" class="daZone no-highlight" style="position: static; overflow: scroll;">
+      <div   dnd-droppable dropZones="['people']" (onDropSuccess)="addContact($event)" class="daZone no-highlight" style="position: static; overflow: scroll;">
           <div id="dropbox" [ngStyle]="{'zoom' : zoom}"  (mousedown)="mouseDown($event);" class="dropbox" style="position: relative; min-height: inherit;">
           <div id="self" dnd-draggable *ngFor="let contact of selected" class="contactCard no-highlight" [style.background-color]="showContactsNotInGroup(contact)"  [ngStyle]="{'top': contact.offsetY - 40 + 'px', 'left': contact.offsetX - 90 + 'px'}"
-          [dropZones]="['people']"
-                    [dragData]="contact" (click)="addToGroup(contact)">
+          dropZones="['people']"
+                    dragData="contact" (click)="addToGroup(contact)">
            <svg (click)="removeContact(contact)" class ="closeButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 84 84" style="enable-background:new 0 0 84 84;" xml:space="preserve" width="512px" height="512px">
             <g >
               <g>

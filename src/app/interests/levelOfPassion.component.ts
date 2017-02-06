@@ -7,39 +7,40 @@ import {Dnd} from "../models/dnd.model";
 
 @Component({
   selector: "passion",
+  providers: [NavigatorService, InterestService],
   template: `
-<div  class="barFix section4">    
+<div  class="barFix section4">
     <h2 style="font-size: 15px; text-align:center;">Please indicate how passionate you are about each of the activities by dragging them into the categories below</h2>
     <div class="cardHolder dragFrame ">
-    
-       <div *ngFor="let interest of interests; let i =index" dnd-draggable [dragEnabled]="true"
-                      [dropZones]="['slightly', 'somewhat', 'not', 'moderately', 'extremely']" 
-                      [dragData]="interest"
+
+       <div *ngFor="let interest of interests; let i =index" dnd-draggable dragEnabled="true"
+                      dropZones="['slightly', 'somewhat', 'not', 'moderately', 'extremely']"
+                      dragData="interest"
                       class="formBox formBox-drag reviewBox ">
-                    
-            
-        <div style="padding:0px">	
+
+
+        <div style="padding:0px">
         <div class="interestHeader no-highlight" style="font-size: 15px; line-height: .5;">{{interests[i].answer}}</div>
           <div class="inlineInput">
           </div>
             <div class="background"></div>
-        </div>     
+        </div>
        </div>
-	    
+
     </div>
     <div class="droppables">
-      <div  dnd-droppable  [dropZones]="['not']" (onDropSuccess)="putItem('not', $event)" class="droppableOption"><h3>Not at all passionate</h3>
+      <div  dnd-droppable  dropZones="['not']" (onDropSuccess)="putItem('not', $event)" class="droppableOption"><h3>Not at all passionate</h3>
           <span class="dropbox"><div   *ngFor="let item of localState.passionate.not" class="stackedcard">{{item.answer}}<div (click)="removeItem('not', item)" class="closeCard no-highlight">X</div></div></span></div>
-      <div  dnd-droppable  [dropZones]="['slightly']" (onDropSuccess)="putItem('slightly', $event)" class="droppableOption"><h3>Slightly Passionate</h3>
+      <div  dnd-droppable  dropZones="['slightly']" (onDropSuccess)="putItem('slightly', $event)" class="droppableOption"><h3>Slightly Passionate</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.passionate.slightly" class="stackedcard">{{item.answer}}<div (click)="removeItem('slightly', item)" class="closeCard no-highlight">X</div></div></span></div>
-      <div  dnd-droppable  [dropZones]="['somewhat']"  (onDropSuccess)="putItem('somewhat', $event)" class="droppableOption"><h3>Somewhat Passionate</h3>
+      <div  dnd-droppable  dropZones="['somewhat']"  (onDropSuccess)="putItem('somewhat', $event)" class="droppableOption"><h3>Somewhat Passionate</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.passionate.somewhat" class="stackedcard">{{item.answer}}<div (click)="removeItem('somewhat', item)" class="closeCard no-highlight">X</div></div></span></div>
-	    <div   dnd-droppable  [dropZones]="['moderately']" (onDropSuccess)="putItem('moderately', $event)" class="droppableOption"><h3>Moderately Passionate</h3>
+	    <div   dnd-droppable  dropZones="['moderately']" (onDropSuccess)="putItem('moderately', $event)" class="droppableOption"><h3>Moderately Passionate</h3>
 	        <span class="dropbox"><div  *ngFor="let item of localState.passionate.moderately" class="stackedcard">{{item.answer}}<div (click)="removeItem('moderately', item)" class="closeCard no-highlight">X</div></div></span></div>
-	    <div  dnd-droppable  [dropZones]="['extremely']" (onDropSuccess)="putItem('extremely', $event)" class="droppableOption"><h3>Extremely Passionate</h3>
+	    <div  dnd-droppable  dropZones="['extremely']" (onDropSuccess)="putItem('extremely', $event)" class="droppableOption"><h3>Extremely Passionate</h3>
 	        <span class="dropbox"><div  *ngFor="let item of localState.passionate.extremely" class="stackedcard">{{item.answer}}<div (click)="removeItem('extremely', item)" class="closeCard no-highlight">X</div></div></span></div>
     </div>
-	</div>	   
+	</div>
 	<div class="blockContainer">
 	<a (click)="nextPage()" id="navigator">Continue</a>
 	</div>

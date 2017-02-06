@@ -11,6 +11,7 @@ import {OnDestroy} from "@angular/core";
 
 @Component({
   selector: "wellbeing-info",
+  providers: [NavigatorService, QuestionsService],
   template: `
 <h2 style="font-size: 1.5em;
     text-align: center;
@@ -18,71 +19,71 @@ import {OnDestroy} from "@angular/core";
     padding-right: 40px;
     margin-bottom: 20px;
    ">Please rate the following to the best of your abilities.</h2>
-<div class="barFix auth" >    
+<div class="barFix auth" >
 	<div id="main">
 
 
 	<div  class="flexFifthInput formBox flexTopLeft flexTopRight physicalHealth">
 	        <label class="hideToggle" for="DOB">In terms of your physical health, do your currently feel: </label> <br>
-          <choose-five (onChosen)="setAnswer('physicalHealth', $event)" [oldChoice]="localStatephysicalHealth" [type]="2"></choose-five>
+          <choose-five (onChosen)="setAnswer('physicalHealth', $event)" oldChoice="localStatephysicalHealth" type="2"></choose-five>
 	</div>
 
 	<div  class="flexFifthInput formBox   currentlyAre">
 	        <label class="hideToggle" for="DOB"> Currently, you would say that you are:</label> <br>
-	     	  <choose-five (onChosen)="setAnswer('happyAtNjit', $event)" [oldChoice]="localStatehappyAtNjit" [type]="2"></choose-five>
-	</div>	
+	     	  <choose-five (onChosen)="setAnswer('happyAtNjit', $event)" oldChoice="localStatehappyAtNjit" type="2"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   currentWill">
 	        <label class="hideToggle" for="DOB"> Currently, you  would say that you:</label> <br>
-	     	<choose-five (onChosen)="setAnswer('stayAtNjit', $event)" [oldChoice]="localStatestayAtNjit" [type]="3"></choose-five>
-	</div>		
+	     	<choose-five (onChosen)="setAnswer('stayAtNjit', $event)" oldChoice="localStatestayAtNjit" type="3"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   lackOfcompanionship">
 	        <label class="hideToggle" for="DOB">How often do you feel you lack companionship?</label> <br>
-	    <choose-five (onChosen)="setAnswer('lackCompanionShip', $event)" [oldChoice]="localStatelackCompanionShip" [type]="4"></choose-five>
-	</div>	
+	    <choose-five (onChosen)="setAnswer('lackCompanionShip', $event)" oldChoice="localStatelackCompanionShip" type="4"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   leftOut">
 	        <label class="hideToggle" for="DOB">How often do you feel left out?</label> <br>
-	     	<choose-five (onChosen)="setAnswer('feelLeftOut', $event)" [oldChoice]="localStatefeelLeftOut" [type]="4"></choose-five>
-	</div>	
+	     	<choose-five (onChosen)="setAnswer('feelLeftOut', $event)" oldChoice="localStatefeelLeftOut" type="4"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   isolated">
 	        <label class="hideToggle" for="DOB">How often do you feel isolated from others?</label> <br>
-	     	<choose-five (onChosen)="setAnswer('feelIsolated', $event)" [oldChoice]="localStatefeelIsolated" [type]="4"></choose-five>
-	</div>	
+	     	<choose-five (onChosen)="setAnswer('feelIsolated', $event)" oldChoice="localStatefeelIsolated" type="4"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   failure">
 	        <label class="hideToggle" for="DOB">All in all, I am inclined to feel that I am a failure</label> <br>
-	     	<choose-five (onChosen)="setAnswer('feelFailure', $event)" [oldChoice]="localStatefeelFailure" [type]="1"></choose-five>
-	</div>	
+	     	<choose-five (onChosen)="setAnswer('feelFailure', $event)" oldChoice="localStatefeelFailure" type="1"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   selfEsteem">
 	        <label class="hideToggle" for="DOB">I have high self-esteem</label> <br>
-	    <choose-five (onChosen)="setAnswer('highSelfEsteem', $event)" [oldChoice]="localStatehighSelfEsteem" [type]="1"></choose-five>
-	</div>	
+	    <choose-five (onChosen)="setAnswer('highSelfEsteem', $event)" oldChoice="localStatehighSelfEsteem" type="1"></choose-five>
+	</div>
 
 
 	<div  class="flexFifthInput formBox   idealLife">
 	        <label class="hideToggle" for="DOB">In most ways my life is close to ideal</label> <br>
-	     	<choose-five (onChosen)="setAnswer('lifeIdeal', $event)" [oldChoice]="localStatelifeIdeal" [type]="1"></choose-five>
-	</div>	
+	     	<choose-five (onChosen)="setAnswer('lifeIdeal', $event)" oldChoice="localStatelifeIdeal" type="1"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   lifeCondition">
 	        <label class="hideToggle" for="DOB">The conditions of my life are excellent</label> <br>
-	     	<choose-five (onChosen)="setAnswer('lifeExcellent', $event)" [oldChoice]="localStatelifeExcellent" [type]="1"></choose-five>
-	</div>	
+	     	<choose-five (onChosen)="setAnswer('lifeExcellent', $event)" oldChoice="localStatelifeExcellent" type="1"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox   satisfied">
 	        <label class="hideToggle" for="DOB"> I am satisfied with my life</label> <br>
-	     	<choose-five (onChosen)="setAnswer('lifeSatisfied', $event)" [oldChoice]="localStatelifeSatisfied" [type]="1"></choose-five>
-	</div>	
+	     	<choose-five (onChosen)="setAnswer('lifeSatisfied', $event)" oldChoice="localStatelifeSatisfied" type="1"></choose-five>
+	</div>
 
 	<div  class="flexFifthInput formBox  flexBottomLeft flexBottomRight selfPride">
 		        <label class="hideToggle" for="DOB">I feel I do not have much to be proud of</label> <br>
-	     	<choose-five (onChosen)="setAnswer('doNotHaveProud', $event)" [oldChoice]="localStatedoNotHaveProud" [type]="1"></choose-five>
-	</div>			
-	
+	     	<choose-five (onChosen)="setAnswer('doNotHaveProud', $event)" oldChoice="localStatedoNotHaveProud" type="1"></choose-five>
+	</div>
+
 
 	</div>
 	</div>

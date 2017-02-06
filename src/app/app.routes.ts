@@ -141,7 +141,7 @@ export const ROUTES: Routes = [
   },
 
 
-  { path: '**',    component: NoContent },
+
 ];
 
 

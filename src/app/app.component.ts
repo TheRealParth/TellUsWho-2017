@@ -17,7 +17,7 @@ import {ProfileService} from "./services/profile.service";
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   directives: [TopNav, MiniProfile],
-  providers: [MiniProfileService],
+  providers: [MiniProfileService, NavigatorService],
   template: `
 <div *ngIf="!authService.authenticated" id="noauth-topbar">
   <h1>TellUsWho</h1>

@@ -1,14 +1,14 @@
-import {Component, Input, Output, OnInit, ElementRef} from '@angular/core';
-import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
+import {Component, EventEmitter, Input, Output, OnInit, ElementRef} from '@angular/core';
+
 
 @Component({
   selector: "multiple-select",
-  template: `           
+  template: `
          <div class="awesomplete triangle">
 
           <div class="tags-box">
            <span>
-           <span class="no-highlight" style="border-radius: 3px; display: inline-flex; justify-content: space-between; width: auto; overflow: hidden;" 
+           <span class="no-highlight" style="border-radius: 3px; display: inline-flex; justify-content: space-between; width: auto; overflow: hidden;"
            *ngFor="let choice of chosen; let i = index; ">
               <span style="max-width: 80px; white-space: nowrap;overflow: hidden;text-overflow:ellipsis;" > {{choice}} </span>
             <svg (click)="removeTag(i)" class ="closeButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 84 84" style="enable-background:new 0 0 84 84;" xml:space="preserve" width="512px" height="512px">
@@ -21,15 +21,15 @@ import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
 
            </span>
            </span>
-           
+
          <input  [ngStyle]="{'width': 550 - (chosen.length * 100) + 'px'}"
                 *ngIf="chosen.length < 5"
                 [attr.placeholder]="placeholder"
                 (keyup)="filter($event); "
-                (focus)="active = true; filter($event);  " 
+                (focus)="active = true; filter($event);  "
                 (blur)="checkBlur(true); "
                 [(ngModel)]="multiinput"
-                
+
                 class="dropdown-input"  autocomplete="off" aria-autocomplete="list">
          </div>
          <div class="ddHolder" [hidden]="!canOpen()">
@@ -40,7 +40,7 @@ import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
         </ul>
         </div>
         </div>
-      
+
         <button (mousedown)="checkBlur(false);" class="dropdown-btn" style="top: 38px; right: 2px;" type="button"><span class="caret"></span></button>
 `,
 })
@@ -154,4 +154,3 @@ export class MultipleSelect implements OnInit{
 
 
 }
-

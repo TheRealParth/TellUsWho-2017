@@ -9,35 +9,35 @@ import {Dnd} from "../models/dnd.model";
 @Component({
   selector: "willing-to-teach",
   template: `
-<div  class="barFix section4">    
+<div  class="barFix section4">
     <h2 style="font-size: 1.5em; text-align:center;">Please drag each interest into a bucket below based on if you want to teach, coach, or learn more about the interest.</h2>
     <div class="cardHolder dragFrame ">
-     <div *ngFor="let interest of interests; let i =index" dnd-draggable [dragEnabled]="true"
-                    [dropZones]="[ 'not', 'teach', 'coach', 'learn']" 
-                    [dragData]="interest"
+     <div *ngFor="let interest of interests; let i =index" dnd-draggable dragEnabled="true"
+                    dropZones="[ 'not', 'teach', 'coach', 'learn']"
+                    dragData="interest"
                     class="formBox formBox-drag reviewBox ">
-                  
-          
-      <div style="padding:0px">	
+
+
+      <div style="padding:0px">
 	    <div class="interestHeader no-highlight" style="font-size: 15px; line-height: .5;">{{interest.answer}}</div>
 	    	<div class="inlineInput">
         </div>
 	        <div class="background"></div>
-	    </div>     
+	    </div>
 	    </div>
 
     </div>
     <div class="droppables">
-      <div  dnd-droppable  [dropZones]="['not']" (onDropSuccess)="putItem('not', $event)" class="droppableOption"><h3>Does not apply</h3>
+      <div  dnd-droppable  dropZones="['not']" (onDropSuccess)="putItem('not', $event)" class="droppableOption"><h3>Does not apply</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.willingToTeach.not" class="stackedcard">{{item.answer}}<div (click)="removeItem('not', item)" class="closeCard no-highlight">X</div></div></span></div>
-      <div  dnd-droppable  [dropZones]="['teach']" (onDropSuccess)="putItem('teach', $event)" class="droppableOption"><h3>Willing to Teach</h3>
+      <div  dnd-droppable  dropZones="['teach']" (onDropSuccess)="putItem('teach', $event)" class="droppableOption"><h3>Willing to Teach</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.willingToTeach.teach" class="stackedcard">{{item.answer}}<div (click)="removeItem('teach', item)" class="closeCard no-highlight">X</div></div></span></div>
-      <div  dnd-droppable  [dropZones]="['coach']"  (onDropSuccess)="putItem('coach', $event)" class="droppableOption"><h3>Willing to Coach</h3>
+      <div  dnd-droppable  dropZones="['coach']"  (onDropSuccess)="putItem('coach', $event)" class="droppableOption"><h3>Willing to Coach</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.willingToTeach.coach" class="stackedcard">{{item.answer}}<div (click)="removeItem('coach', item)" class="closeCard no-highlight">X</div></div></span></div>
-	    <div   dnd-droppable  [dropZones]="['learn']" (onDropSuccess)="putItem('learn', $event)" class="droppableOption"><h3>Want to be taught or coached</h3>
+	    <div   dnd-droppable  dropZones="['learn']" (onDropSuccess)="putItem('learn', $event)" class="droppableOption"><h3>Want to be taught or coached</h3>
 	        <span class="dropbox"><div  *ngFor="let item of localState.willingToTeach.learn" class="stackedcard">{{item.answer}}<div (click)="removeItem('learn', item)" class="closeCard no-highlight">X</div></div></span></div>
     </div>
-	</div>	   
+	</div>
 	<div class="blockContainer">
 	<a (click)="nextPage()" id="navigator">Continue</a>
 	</div>
@@ -112,4 +112,3 @@ export class WillingToTeachComponent extends Dnd {
   }
 
 }
-

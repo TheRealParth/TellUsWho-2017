@@ -1,5 +1,5 @@
-import {Component, Input, Output} from '@angular/core';
-import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
+import {Component,EventEmitter, Input, Output} from '@angular/core';
+
 
 @Component({
   selector: "choose-five",
@@ -56,4 +56,3 @@ export class ChooseFive {
     }
   }
 }
-

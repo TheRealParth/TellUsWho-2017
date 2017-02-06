@@ -16,7 +16,7 @@ import {bginfoQuestions} from "../options/surveyQuestions";
 
 @Component({
   selector: "background-info",
-  providers: [OptionService],
+  providers: [OptionService, NavigatorService, QuestionsService, MiniProfileService],
   template: `
 <h2 style="font-size: 1.5em;
     text-align: center;
@@ -40,19 +40,19 @@ import {bginfoQuestions} from "../options/surveyQuestions";
             <div class="formBox flexTopRight" >
                     <label  class="right">What gender do you identify with?</label>
                <br>
-            <autocomplete [oldChoice]="localState.gender" (onChosen)="setAnswer('gender', $event);" [placeholder]="'Select a gender'" [options]="options.genderOptions"  ></autocomplete>
+            <autocomplete oldChoice="localState.gender" (onChosen)="setAnswer('gender', $event);" placeholder="'Select a gender'" options="options.genderOptions"  ></autocomplete>
             </div>
 
           </div>
           <div class="formBoxWrapper">
            <div class="formBox" >
             <label > What is your nationality?</label> <br>
-            <autocomplete  [oldChoice]="localState.nationality" [options]="options.nationalityOptions" [placeholder]="'Select a nationality'" (onChosen)="setTwice('nationality', $event);"> </autocomplete>
+            <autocomplete  oldChoice="localState.nationality" options="options.nationalityOptions" placeholder="'Select a nationality'" (onChosen)="setTwice('nationality', $event);"> </autocomplete>
           </div>
 
            <div class="formBox" >
             <label class="right"> What is your native language?</label> <br>
-            <autocomplete [oldChoice]="localState.nativeLanguage"  id="spokenLanguage" [options]="options.languageOptions" [placeholder]="'Select a native language'" (onChosen)="setTwice('nativeLanguage', $event)"> </autocomplete>
+            <autocomplete oldChoice="localState.nativeLanguage"  id="spokenLanguage" options="options.languageOptions" placeholder="'Select a native language'" (onChosen)="setTwice('nativeLanguage', $event)"> </autocomplete>
           </div>
 
         </div>
@@ -61,7 +61,7 @@ import {bginfoQuestions} from "../options/surveyQuestions";
 
             <div class="formBox" >
                 <label class="right"> What other languages do you speak?</label> <br>
-          <multiple-select (setDefaults)="localState.otherLanguages" [oldChoice]="localState.otherLanguages" (onChosen)="setAnswers('otherLanguages', $event)" [options]="options.languageOptions" [placeholder]="'Select other languages'" ></multiple-select>
+          <multiple-select (setDefaults)="localState.otherLanguages" oldChoice="localState.otherLanguages" (onChosen)="setAnswers('otherLanguages', $event)" options="options.languageOptions" placeholder="'Select other languages'" ></multiple-select>
             </div>
         </div>
 
@@ -76,13 +76,13 @@ import {bginfoQuestions} from "../options/surveyQuestions";
 
             <div class="flexThird" >
                <br>
-              <autocomplete class="state" [placeholder]="'State'" [oldChoice]="localState.grownState" (onChosen)="setAnswer('grownState', $event);" [options]="options.stateOptions" ></autocomplete>
+              <autocomplete class="state" placeholder="'State'" oldChoice="localState.grownState" (onChosen)="setAnswer('grownState', $event);" options="options.stateOptions" ></autocomplete>
             </div>
 
 
             <div class="flexThird flexTopRight flexBottomRight country">
                <br>
-            <autocomplete class="country" [oldChoice]="localState.grownCountry" (onChosen)="setAnswer('grownCountry', $event);" [placeholder]="'Country'" [options]="options.countryOptions" ></autocomplete>
+            <autocomplete class="country" oldChoice="localState.grownCountry" (onChosen)="setAnswer('grownCountry', $event);" placeholder="'Country'" options="options.countryOptions" ></autocomplete>
             </div>
             </div>
         </div>
@@ -91,9 +91,9 @@ import {bginfoQuestions} from "../options/surveyQuestions";
             <div class="formBox nodrop" style="height: auto">
                 <label> Where do you currently live?</label> <br>
                 <div class="flexThirdWrapper" style="margin: 10px">
-                <chosen [oldChoice]="localState.onCampus" [options]="['On Campus','Off Campus']" (onChosen)="setTwice('onCampus', $event)" ></chosen>
+                <chosen oldChoice="localState.onCampus" options="['On Campus','Off Campus']" (onChosen)="setTwice('onCampus', $event)" ></chosen>
                 </div>
-            <autocomplete style="margin-top: -20px" *ngIf="(localState.onCampus == 'On Campus')" [oldChoice]="localState.campusHousing"  id="spokenLanguage" [options]="options.campusOptions" [placeholder]="'Select a your campus housing'" (onChosen)="setTwice('campusHousing', $event)"> </autocomplete>
+            <autocomplete style="margin-top: -20px" *ngIf="(localState.onCampus == 'On Campus')" oldChoice="localState.campusHousing"  id="spokenLanguage" options="options.campusOptions" placeholder="'Select a your campus housing'" (onChosen)="setTwice('campusHousing', $event)"> </autocomplete>
                 <div style="margin-top: -20px"  *ngIf="(localState.onCampus == 'Off Campus')" class="flexThirdWrapper">
                   <div class="flexThird flexTopLeft flexBottomLeft">
 
@@ -102,12 +102,12 @@ import {bginfoQuestions} from "../options/surveyQuestions";
 
                     <div class="flexThird" >
                        <br>
-                  <autocomplete class="state" [oldChoice]="localState.currentState" [placeholder]="'State'" [options]="options.stateOptions" (onChosen)="setTwice('currentState', $event)"></autocomplete>
+                  <autocomplete class="state" oldChoice="localState.currentState" placeholder="'State'" options="options.stateOptions" (onChosen)="setTwice('currentState', $event)"></autocomplete>
                     </div>
 
                     <div class="flexThird flexTopRight flexBottomRight country">
                        <br>
-                    <autocomplete class="country" [oldChoice]="localState.currentCountry" [placeholder]="'Country'" [options]="options.countryOptions" (onChosen)="setTwice('currentCountry', $event)" ></autocomplete>
+                    <autocomplete class="country" oldChoice="localState.currentCountry" placeholder="'Country'" options="options.countryOptions" (onChosen)="setTwice('currentCountry', $event)" ></autocomplete>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@ import {bginfoQuestions} from "../options/surveyQuestions";
             <div class="formBoxWrapper">
             <div class="formBox" >
                 <label > Who do you currently live with?</label> <br>
-                    <autocomplete [oldChoice]="localState.liveWith" [placeholder]="'Country'" [options]="options.livewithOptions" (onChosen)="setAnswer('liveWith', $event)" ></autocomplete>
+                    <autocomplete oldChoice="localState.liveWith" placeholder="'Country'" options="options.livewithOptions" (onChosen)="setAnswer('liveWith', $event)" ></autocomplete>
                   </div>
 
             </div>
@@ -124,18 +124,18 @@ import {bginfoQuestions} from "../options/surveyQuestions";
        <div class="formBox" >
         <label > What is your relationship status?</label> <br>
         <autocomplete
-        [oldChoice]="localState.relationshipStatus"
-        [placeholder]="'Select your relationship status'"
-        [options]="options.relationshipOptions"
+        oldChoice="localState.relationshipStatus"
+        placeholder="'Select your relationship status'"
+        options="options.relationshipOptions"
         (onChosen)="setAnswer('relationshipStatus', $event)"></autocomplete>
       </div>
 
        <div class="formBox" >
         <label class="right"> What is your sexual identification?</label> <br>
         <autocomplete
-        [oldChoice]="localState.sexualIdentification"
-        [placeholder]="'Select your sexual identification'"
-        [options]="options.orientationOptions"
+        oldChoice="localState.sexualIdentification"
+        placeholder="'Select your sexual identification'"
+        options="options.orientationOptions"
         (onChosen)="setAnswer('sexualIdentification', $event)"></autocomplete>
       </div>
 
@@ -145,9 +145,9 @@ import {bginfoQuestions} from "../options/surveyQuestions";
         <div class="formBox flexBottomLeft flexBottomRight">
           <label> What is your ethnicity? </label> <br>
         <autocomplete
-        [oldChoice]="localState.ethnicity"
-        [placeholder]="'Select your ethnicity'"
-        [options]="options.ethnicityOptions"
+        oldChoice="localState.ethnicity"
+        placeholder="'Select your ethnicity'"
+        options="options.ethnicityOptions"
         (onChosen)="setAnswer('ethnicity', $event)"></autocomplete>
         </div>
 

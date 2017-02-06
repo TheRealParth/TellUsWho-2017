@@ -1,12 +1,12 @@
-import {Component, Input, Output} from '@angular/core';
-import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+
 
 @Component({
   selector: "interest-item",
-  template: `           
+  template: `
           <div class="interest-tags-box">
            <span>
-           <span class="no-highlight" 
+           <span class="no-highlight"
            *ngFor="let choice of chosen; let i = index; ">
               <span > {{choice.answer}} </span>
             <svg (click)="removeTag(i)" class ="closeButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 84 84" style="enable-background:new 0 0 84 84;" xml:space="preserve" width="512px" height="512px">
@@ -19,13 +19,13 @@ import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
 
            </span>
             <span class="input" >
-              <input  
+              <input
               (keyup)="choose($event)"
                  [(ngModel)] = "currentVal"
                  [attr.placeholder] = "placeholder"
                  class="dropdown-input"  autocomplete="off" aria-autocomplete="list">
             </span>
-           </span>  
+           </span>
          </div>
 `,
 })
@@ -67,4 +67,3 @@ export class InterestItem {
 
 
 }
-

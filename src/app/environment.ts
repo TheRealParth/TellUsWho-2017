@@ -8,8 +8,28 @@ import {
   enableProdMode
 } from '@angular/core';
 // Environment Providers
+import { ProgressService } from './services/progress.service'
+import { AppState } from './app.service';
+import {AuthGuard} from "./services/authguard-service";
+import {NoAuthGuard} from "./services/no-authguard-service";
+import {AuthService} from "./services/auth.service";
+import {ProgressService} from "./services/progress.service";
+import {NavigatorService} from "./services/navigator.service";
+import {QuestionsService} from "./services/questions-service";
+import {InterestService} from "./services/interests.service";
+
+
 let PROVIDERS: any[] = [
-  // common env directives
+
+  AppState,
+  AuthGuard,
+  AuthService,
+  NoAuthGuard,
+  ProgressService,
+  NavigatorService,
+  QuestionsService,
+  InterestService,
+
 ];
 
 // Angular debug tools in the dev console

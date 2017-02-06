@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
 import {
   NgModule,
   ApplicationRef
@@ -20,12 +21,12 @@ import {
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+import { AngularFireModule } from 'angularfire2';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { MiniProfile } from './UI/mini-profile.component';
-import { Autocomplete } from './UI/autocomplete';
 
 import { LandingPage } from './landingpage'
 import { NoContentComponent } from './no-content';
@@ -51,6 +52,28 @@ import { SocialComponent } from './social/social.component'
 import { Login } from './auth/login'
 import { SignUp } from './auth/signup'
 import { Forgot } from './auth/forgot'
+
+import { Autocomplete } from './UI/autocomplete'
+import { MultipleSelect } from './UI/multiple-select'
+import { ChooseFive } from './UI/choose-five'
+import { Chosen } from './UI/chosen'
+import { InterestItem } from './UI/interest-item'
+import { ContactList } from './UI/contacts-list'
+import { TagList } from './UI/tags-list'
+import { TopNav } from './UI/topnav'
+import { InterestWithCategory } from './UI/interestWithCategory'
+import { MiniProfile } from './UI/mini-profile.component'
+import { MapSearch } from './UI/MapSearch'
+
+import { AngularFireModule } from 'angularfire2';
+export const firebaseConfig = {
+  apiKey: "AIzaSyD-v360ct6TwFbj1PeCwF_UoGCPDunALAA",
+  authDomain: "telluswho-59788.firebaseapp.com",
+  databaseURL: "https://telluswho-59788.firebaseio.com",
+  storageBucket: "telluswho-59788.appspot.com",
+  messagingSenderId: "517726309983"
+};
+
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -80,7 +103,7 @@ type StoreType = {
     Login,
     SignUp,
     Forgot,
-    Autocomplete,
+
     BackgroundInfoComponent,
     SchoolAndWorkComponent,
     SenseOfCommunityComponent,
@@ -98,8 +121,21 @@ type StoreType = {
     PlacesComponent,
     WillingToTeachComponent,
     SocialComponent,
+
+    MultipleSelect,
+    Autocomplete,
+    ChooseFive,
+    Chosen,
+    InterestItem,
+    ContactList,
+    TagList,
+    TopNav,
+    InterestWithCategory,
+    MapSearch,
+    MiniProfile
   ],
   imports: [ // import Angular's modules
+    AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
     FormsModule,
     HttpModule,

@@ -9,35 +9,36 @@ import {Dnd} from "../models/dnd.model";
 
 @Component({
   selector: "group",
+  providers: [ NavigatorService, InterestService],
   template: `
-<div  class="barFix section4">    
-    <h2 style="font-size: 1.5em; text-align:center;">How would you like to do this activity with others? 
+<div  class="barFix section4">
+    <h2 style="font-size: 1.5em; text-align:center;">How would you like to do this activity with others?
    <br> Please drag each interest into one of the three buckets below.</h2>
     <div class="cardHolder dragFrame ">
-     <div *ngFor="let interest of interests; let i =index" dnd-draggable [dragEnabled]="true"
-                    [dropZones]="[ 'not', 'currently', 'future']"  
-                    [dragData]="interest"
+     <div *ngFor="let interest of interests; let i =index" dnd-draggable dragEnabled="true"
+                    dropZones="[ 'not', 'currently', 'future']"
+                    dragData="interest"
                     class="formBox formBox-drag reviewBox ">
-                  
-          
-      <div style="padding:0px">	
+
+
+      <div style="padding:0px">
 	    <div class="interestHeader no-highlight" style="font-size: 15px; line-height: .5;">{{interest.answer}}</div>
 	    	<div class="inlineInput">
         </div>
 	        <div class="background"></div>
-	    </div>     
 	    </div>
-      
+	    </div>
+
     </div>
     <div class="droppables">
-      <div  dnd-droppable  [dropZones]="['not']" (onDropSuccess)="putItem('not', $event)" class="droppableOption"><h3>I do this by myself</h3>
+      <div  dnd-droppable  dropZones="['not']" (onDropSuccess)="putItem('not', $event)" class="droppableOption"><h3>I do this by myself</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.groupActivity.not" class="stackedcard">{{item.answer}}<div (click)="removeItem('not', item)" class="closeCard no-highlight">X</div></div></span></div>
-      <div  dnd-droppable  [dropZones]="['currently']" (onDropSuccess)="putItem('currently', $event)" class="droppableOption"><h3>I currently do this in a group</h3>
+      <div  dnd-droppable  dropZones="['currently']" (onDropSuccess)="putItem('currently', $event)" class="droppableOption"><h3>I currently do this in a group</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.groupActivity.currently" class="stackedcard">{{item.answer}}<div (click)="removeItem('currently', item)" class="closeCard no-highlight">X</div></div></span></div>
-      <div  dnd-droppable  [dropZones]="['future']"  (onDropSuccess)="putItem('future', $event)" class="droppableOption"><h3>I want to do this in a group in the future</h3>
+      <div  dnd-droppable  dropZones="['future']"  (onDropSuccess)="putItem('future', $event)" class="droppableOption"><h3>I want to do this in a group in the future</h3>
           <span class="dropbox"><div  *ngFor="let item of localState.groupActivity.future" class="stackedcard">{{item.answer}}<div (click)="removeItem('future', item)" class="closeCard no-highlight">X</div></div></span></div>
     </div>
-  </div>     
+  </div>
   <div class="blockContainer">
   <a (click)="nextPage()" id="navigator">Continue</a>
   </div>
@@ -107,4 +108,3 @@ export class GroupComponent extends Dnd {
     });
   }
 }
-

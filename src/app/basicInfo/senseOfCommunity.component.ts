@@ -7,6 +7,7 @@ import {Survey} from "../models/basic-survey.model";
 import {socQuestions} from '../options/surveyQuestions';
 @Component({
   selector: "senseOfCommunity-info",
+  providers: [ NavigatorService, QuestionsService],
   template: `
 <h2 style="font-size: 1.5em;
     text-align: center;
@@ -14,61 +15,61 @@ import {socQuestions} from '../options/surveyQuestions';
     padding-right: 40px;
     margin-bottom: 20px;
    ">Please rate the following on how much you agree/disagree.</h2>
-<div class="barFix " >    
+<div class="barFix " >
   <div id="main" >
 
   <div  class="flexFifthInput formBox flexTopLeft flexTopRight studentsCaare">
- 
+
         <label class="hideToggle" > <p style="margin-bottom:20px;">In general...</p>I find that students at NJIT care about each other</label> <br>
-        <choose-five  style="margin-top: 15px;" (onChosen)="setAnswer('studentsCare', $event)" [oldChoice]="localState.studentsCare" [type]="1"></choose-five>
+        <choose-five  style="margin-top: 15px;" (onChosen)="setAnswer('studentsCare', $event)" oldChoice="localState.studentsCare" type="1"></choose-five>
   </div>
 
   <div  class="flexFifthInput formBox   facultyCare">
       <label class="hideToggle" > I feel that faculty at NJIT care about their students</label> <br>
-        <choose-five (onChosen)="setAnswer('facultyCare', $event)" [oldChoice]="localState.facultyCare" [type]="1"></choose-five>
+        <choose-five (onChosen)="setAnswer('facultyCare', $event)" oldChoice="localState.facultyCare" type="1"></choose-five>
   </div>
 
   <div  class="flexFifthInput formBox   connected">
         <label class="hideToggle" > I feel connected to others at NJIT</label> <br>
-        <choose-five (onChosen)="setAnswer('connected', $event)" [oldChoice]="localState.connected" [type]="1"></choose-five>
+        <choose-five (onChosen)="setAnswer('connected', $event)" oldChoice="localState.connected" type="1"></choose-five>
   </div>
 
   <div  class="flexFifthInput formBox   community">
         <label class="hideToggle" >I do not feel a spirit of community at NJIT</label> <br>
-        <choose-five (onChosen)="setAnswer('community', $event)" [oldChoice]="localState.community" [type]="1"></choose-five>
+        <choose-five (onChosen)="setAnswer('community', $event)" oldChoice="localState.community" type="1"></choose-five>
   </div>
 
   <div  class="flexFifthInput formBox   likeFamily">
         <label class="hideToggle" >I feel that NJIT is like family</label> <br>
-        <choose-five (onChosen)="setAnswer('likeFamily', $event)" [oldChoice]="localState.likeFamily" [type]="1"></choose-five>
+        <choose-five (onChosen)="setAnswer('likeFamily', $event)" oldChoice="localState.likeFamily" type="1"></choose-five>
   </div>
-  
+
   <div  class="flexFifthInput formBox   isolated">
           <label class="hideToggle" >I feel isolated at NJIT</label> <br>
-        <choose-five (onChosen)="setAnswer('isolated', $event)" [oldChoice]="localState.isolated" [type]="1"></choose-five>
+        <choose-five (onChosen)="setAnswer('isolated', $event)" oldChoice="localState.isolated" type="1"></choose-five>
   </div>
 
   <div  class="flexFifthInput formBox   friendSupport">
           <label class="hideToggle" >I feel confident that my friends at NJIT will support me if I need them</label> <br>
-        <choose-five (onChosen)="setAnswer('friendSupport', $event)" [oldChoice]="localState.friendSupport" [type]="1"></choose-five>
+        <choose-five (onChosen)="setAnswer('friendSupport', $event)" oldChoice="localState.friendSupport" type="1"></choose-five>
   </div>
 
   <div  class="flexFifthInput formBox   satisifed">
           <label class="hideToggle"  >I am satisfied with my life at NJIT</label> <br>
-       <choose-five (onChosen)="setAnswer('satisfied', $event)" [oldChoice]="localState.satisfied" [type]="1"></choose-five>
+       <choose-five (onChosen)="setAnswer('satisfied', $event)" oldChoice="localState.satisfied" type="1"></choose-five>
   </div>
-  
+
   <div  class="flexFifthInput formBox   loan">
           <label class="hideToggle" >If I need an emergency loan of $100, I know someone at NJIT i can turn to</label> <br>
-        <choose-five (onChosen)="setAnswer('loan', $event)" [oldChoice]="localState.loan" [type]="1"></choose-five>
+        <choose-five (onChosen)="setAnswer('loan', $event)" oldChoice="localState.loan" type="1"></choose-five>
   </div>
 
   <div  class="flexFifthInput formBox flexBottomLeft flexBottomRight advice">
         <label class="hideToggle"  >There is someone at NJIT I can turn to for advice for making very important decisions</label> <br>
-        <choose-five (onChosen)="setAnswer('advice', $event)" [oldChoice]="localState.advice" [type]="1"></choose-five>
-  </div>  
+        <choose-five (onChosen)="setAnswer('advice', $event)" oldChoice="localState.advice" type="1"></choose-five>
+  </div>
 
-  
+
   </div>
   </div>
 

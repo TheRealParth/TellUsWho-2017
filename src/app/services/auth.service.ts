@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {  FirebaseAuth, FirebaseAuthState } from 'angularfire2';
+
 import {ProgressService} from "./progress.service";
 import {Router} from "@angular/router";
 import {Subject} from "rxjs";
 import {AppState} from "../app.service";
 import {AngularFire} from "angularfire2";
-import {AuthMethods} from "angularfire2";
-import {AuthProviders} from "angularfire2";
+
+
 import { Http,Headers ,RequestOptions} from '@angular/http';
 
 let headers = new Headers({ 'Content-Type': 'application/json'});
@@ -16,15 +16,14 @@ let base_url = 'http://resources.coo-e.com:8080/'
 @Injectable()
 export class AuthService {
 
-  public authState: FirebaseAuthState = null;
   redirectUrl: string;
   phoneNumber: string;
 
-  constructor(private http:Http, private af: AngularFire, public router: Router, public progressService: ProgressService, public auth: FirebaseAuth) {
+  constructor(private http:Http, private af: AngularFire, public router: Router, public progressService: ProgressService) {
         if(localStorage.getItem('userId')!=''){
             var userId = (localStorage.getItem('userId'))
             progressService.initiate(userId)
-        }  
+        }
   }
 
   get authenticated(): boolean {
@@ -70,11 +69,11 @@ export class AuthService {
     return promise;
     //return this.auth.createUser({email: email, password: password, name: name});
   }
-  facebookLogin(): firebase.Promise<FirebaseAuthState>{
-    return this.auth.login({
-      provider: AuthProviders.Facebook,
-      method: AuthMethods.Redirect})
-  }
+  // facebookLogin(): firebase.Promise<FirebaseAuthState>{
+  //   return this.auth.login({
+  //     provider: AuthProviders.Facebook,
+  //     method: AuthMethods.Redirect})
+  // }
   forgot(email: string){
     var promise = this.http.get(base_url+'auth/resetPassword/byEmail/'+email,options)
     .map(response => response.json())

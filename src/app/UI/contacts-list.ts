@@ -10,10 +10,10 @@ import {DND_DIRECTIVES } from 'ng2-dnd/';
   <div class="tabContainer">
       <input class="contactSearch" (keyup)="handleChange($event)" [(ngModel)]="searchValue"  placeholder="Search contacts">
       <ul class="contactsList" *ngIf="toggleSwitch">
-        <li *ngFor="let contact of results" dnd-draggable [dragEnabled]="true"
+        <li *ngFor="let contact of results" dnd-draggable dragEnabled="true"
 
-                        [dropZones]="['people']"
-                        [dragData]="contact">
+                        dropZones="['people']"
+                        dragData="contact">
           <img class = "userImg" [attr.src]="contact.imageUrl"> <span class="userInfo"><span class="contactName">{{contact.firstName + " " + contact.lastName}}</span><br>
           <span class="phone">{{ contact.phone }}</span><br><span class="email">{{ contact.email }}</span></span>
         </li>

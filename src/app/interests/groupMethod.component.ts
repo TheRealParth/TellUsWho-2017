@@ -8,18 +8,19 @@ import {Dnd} from "../models/dnd.model";
 
 @Component({
   selector: "group-method",
+  providers: [OptionService, NavigatorService, InterestService],
   template: `
-<div  class="barFix section4">    
+<div  class="barFix section4">
     <h2 style="font-size: 1.5em; text-align:center;">How would you like to do this activity with others?</h2>
     <div class="cardHolder dragFrame ">
      <div class="formBox formBox-drag reviewBox no-highlight" *ngFor="let interest of interests" >
      <div class="interestHeader no-highlight" style="font-size: 15px; line-height: .5;">{{interest.answer}}</div>
-       
+
 	     <div class="interest-tags-box" >
            <span>
-             <span class="no-highlight" 
+             <span class="no-highlight"
              *ngFor="let method of interest.methods">
-                 {{method}} 
+                 {{method}}
               <svg (click)="removeMethod(interest, method)" class ="closeButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 84 84" style="enable-background:new 0 0 84 84;" xml:space="preserve" width="512px" height="512px">
               <g>
                 <g>
@@ -27,12 +28,12 @@ import {Dnd} from "../models/dnd.model";
                 </g>
               </g>
               </svg>
-    
+
              </span>
            </span>
          </div>
-      	
-	    
+
+
 	    <div class="inlineInput">
 	                <div class="cuteLittleArrow method">
             <select [(ngModel)]="interest.currentMethod"  style="margin-left: 30px; margin-bottom:20px;" class="mySelect" id="gender" >
@@ -41,18 +42,17 @@ import {Dnd} from "../models/dnd.model";
 			        </div>
 	    	  <button (click)="addMethod(interest)" class="addmoreButton">add</button>
 	        <div class="background"></div>
-	    </div>     
-	    
+	    </div>
+
     </div>
-    
-	</div>	   
+
+	</div>
 	<div class="blockContainer">
 	<a (click)="nextPage()" id="navigator">Continue</a>
 	</div>
 </div>
 `,
   directives: [Autocomplete],
-  providers: [OptionService]
 
 })
 
@@ -106,4 +106,3 @@ export class GroupMethodComponent extends Dnd {
     this.saveToDb(answer)
   }
 }
-

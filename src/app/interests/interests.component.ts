@@ -12,6 +12,7 @@ import {MiniProfileService} from "../services/mini-profile.service";
 
 @Component({
 	selector: "interests",
+	providers: [OptionService, NavigatorService, InterestService, MiniProfileService],
   template: `
 <h2 style="font-size: 1.5em;
     text-align: center;
@@ -19,7 +20,7 @@ import {MiniProfileService} from "../services/mini-profile.service";
     padding-right: 220px;
    ">In this section, we're interested in all your personal interests, <br>
    activities and hobbies. Please list as many as you can think of.</h2>
-<div class="barFix to-the-left">    
+<div class="barFix to-the-left">
 	<div id="interest-tags">
 		<div >
 		  <span  [class.complete]="interest.completed" [class.active]="currentIndex == i" [class.scratch]="interest.removed" *ngFor="let interest of interests; let i = index;" > {{interest.name}} </span>
@@ -31,7 +32,7 @@ import {MiniProfileService} from "../services/mini-profile.service";
     <interest-with-category [answers]='interest.answers || []' *ngIf="interest.options && (i === currentIndex)" [options]="interest.options"   (onDone)="finish(interest, $event)" (onRemove)="removeNext()" [name]="interest.name" [title]="interest.title" [placeholder]="interest.placeholder"></interest-with-category>
 	</div>
 	<a *ngIf="!done" (click)="nextInterest()" id="navigator" class="next">Next</a>
-	
+
 	</div>
 </div>
 <div class="blockContainer">
@@ -39,7 +40,6 @@ import {MiniProfileService} from "../services/mini-profile.service";
 </div>
 `,
 directives: [InterestWithCategory],
-  providers: [OptionService],
 })
 
 
@@ -119,4 +119,3 @@ export class InterestsComponent implements OnDestroy {
       window.scroll(0,0);
     }
 }
-

@@ -1,5 +1,5 @@
-import {Input, Component, Output, OnDestroy} from "@angular/core";
-import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
+import {Input, EventEmitter, Component, Output, OnDestroy} from "@angular/core";
+
 import {InterestItem} from "./interest-item";
 
 @Component({
@@ -31,15 +31,15 @@ import {InterestItem} from "./interest-item";
 			       <p> are</p>
              <interest-item (save)="saveInterests()" [placeholder]="placeholder" [(answers)] = "currentInterest.value"></interest-item>
              </div>
-             
-             
+
+
             <span (click)="handleAddMore()" class="addmoreButton">+ Add</span>
             <div class="background"></div>
-              
+
               </div>
-              
+
               </div>
-              
+
               `,
   directives: [InterestItem]
 })

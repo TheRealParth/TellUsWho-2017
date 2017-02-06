@@ -15,7 +15,7 @@ import {OnDestroy} from "@angular/core";
 @Component({
 	selector: "workAndSchool-info",
   directives: [Chosen, MultipleSelect],
-  providers: [OptionService],
+  providers: [OptionService, NavigatorService, QuestionsService, MiniProfileService],
   template: `
 <h2 style="font-size: 1.5em;
     text-align: center;
@@ -23,15 +23,15 @@ import {OnDestroy} from "@angular/core";
     padding-right: 220px;
     margin-bottom: 20px;
    ">Please answer the questions below.</h2>
-      <div class="barFix" >    
+      <div class="barFix" >
         <div id="main" class="to-the-left">
-        
+
         <div class="formBoxWrapper">
             <div  class="formBox flexTopLeft ">
                 <label class="hideToggle" for="DOB"> Student Type </label> <br>
                <div style="display: flex; flex-direction: row; justify-content: space-around; margin-top: 1.5%;">
-               <chosen [oldChoice]="localState.fullTime" [options]="['Part-time','Full-time']" (onChosen)="setTwice('fullTime', $event)" ></chosen>
-              <chosen [oldChoice]="localState.graduate" [options]="['Undergraduate','Graduate']" (onChosen)="setTwice('graduate', $event)" ></chosen>
+               <chosen oldChoice="localState.fullTime" options="['Part-time','Full-time']" (onChosen)="setTwice('fullTime', $event)" ></chosen>
+              <chosen oldChoice="localState.graduate" options="['Undergraduate','Graduate']" (onChosen)="setTwice('graduate', $event)" ></chosen>
               </div>
         </div>
          <div  class="formBox flexTopRight" style="flex:.5;">
@@ -39,26 +39,26 @@ import {OnDestroy} from "@angular/core";
                 <input (blur)="setFirstYear()" type="textarea" [(ngModel)]="localState.firstYear"    placeholder="Year">
         </div>
           </div>
-      
-      
+
+
             <div class="formBoxWrapper">
             <div class="formBox" >
-                <label class="right" for="DOB"> What is/are your current major(s)?</label> 
+                <label class="right" for="DOB"> What is/are your current major(s)?</label>
                 <br>
-               <multiple-select (setDefaults)="localState.majors" [options]="majorOptions()" [oldChoice]="localState.majors" (onChosen)="setTwice('majors', $event, false)" [placeholder]="'Select majors'" ></multiple-select>
+               <multiple-select (setDefaults)="localState.majors" options="majorOptions()" oldChoice="localState.majors" (onChosen)="setTwice('majors', $event, false)" placeholder="'Select majors'" ></multiple-select>
                 <div class="background"></div>
-            </div>     
+            </div>
             </div>
                   <div class="formBox" >
                 <label class="right" for="DOB"> Please list any campus organzations you are involved in:</label>
                 <p class="subtitle">(e.g. Clubs, Athletics, Greek Life)</p>
-                <multiple-select (setDefaults)="localState.organizations" [options]="options.countryOptions" [oldChoice]="localState.organizations"  (onChosen)="setAnswers('organizations', $event)" [placeholder]="'Select Organizations'" ></multiple-select>
+                <multiple-select (setDefaults)="localState.organizations" options="options.countryOptions" oldChoice="localState.organizations"  (onChosen)="setAnswers('organizations', $event)" placeholder="'Select Organizations'" ></multiple-select>
                 <div class="background"></div>
-            </div>     
-      
-      
+            </div>
+
+
             <div class="formBoxWrapper bigbox workbox">
-           
+
             <div  class="formBox">
                 <label for="DOB"> Work</label> <br>
               <div class="flexHalfWrapper">
@@ -72,11 +72,11 @@ import {OnDestroy} from "@angular/core";
                 </div>
               </div>
               <span (click)="handleDoNotWork()" [class.active]="!localState.work.doesWork" class="dislikeButton " style="position: absolute; top: 5px; right: 5px;">I do not work</span>
-      
+
         </div>
       </div>
             <div class="formBoxWrapper bigbox volunteerbox">
-           
+
             <div  class="formBox flexBottomLeft flexBottomRight">
                 <label for="DOB"> Volunteer</label> <br>
               <div class="flexHalfWrapper">
@@ -92,10 +92,10 @@ import {OnDestroy} from "@angular/core";
             <span (click)="handleDoNotVolunteer()" [class.active]="!localState.volunteer.doesVolunteer" class="dislikeButton " style="position: absolute; top: 5px; right: 5px;">I do not volunteer</span>
         </div>
       </div>
-      
+
         </div>
       </div>
-      
+
       <div class="blockContainer">
         <a   (click)="nextPage();" id="navigator" class="to-the-left">Continue</a>
       </div>
