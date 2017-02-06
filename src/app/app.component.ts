@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, OnInit} from '@angular/core';
+import {Component,NgModule, ViewEncapsulation, OnInit} from '@angular/core';
 import { AppState } from './app.service';
 import {AngularFire, AngularFireAuth, FirebaseAuth} from 'angularfire2';
 import {AuthService} from "./services/auth.service";
@@ -139,9 +139,6 @@ export class AppComponent {
     this.appState.set('showModal', false);
     this.appState.set('terms', false);
     this.appState.set('researchOverview', false);
-  }
-  ngOnInit(){
-
   }
 }
 

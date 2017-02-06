@@ -41,13 +41,13 @@ import {InterestService} from "../services/interests.service";
             <p class="majorsPlaceholder" style="width: 60px;"></p><p class="majorsPlaceholder" style="width: 75px;"></p><p class="majorsPlaceholder" style="width: 50px;"></p>
             </div>
         <div *ngIf="majors() " class="mini-tags" style=" text-align:left;" >
-            
+
             <span class="interest-tag no-highlight bigger" *ngFor="let major of majors()">{{major}}</span>
             </div>
           </div>
         </div>
         <hr>
-        
+
         <div class="info-list">
           <div class="info" style="width: 100%; padding-left: 10px; text-align:left;"><span style="font-size: 13px">Interests</span>
             <div *ngIf="interests()" class="mini-tags" style="text-align:left;" >
@@ -56,7 +56,7 @@ import {InterestService} from "../services/interests.service";
              <div *ngIf="!interests() || interests().length==0" class="mini-tags" style="text-align:left;" >
             <p class="interestPlaceholder" style="width: 60px" ></p><p class="interestPlaceholder" style="width: 45px" ></p><p class="interestPlaceholder" style="width: 30px" ></p><p class="interestPlaceholder" style="width: 70px" ></p><p class="interestPlaceholder" style="width: 45px" ></p><p class="interestPlaceholder" style="width: 40px" ></p><p class="interestPlaceholder" style="width: 35px" ></p><p class="interestPlaceholder" style="width: 44px" ></p><p class="interestPlaceholder" style="width: 35px" >
             </div>
-            
+
           </div>
         </div>
 
@@ -65,7 +65,7 @@ import {InterestService} from "../services/interests.service";
 
 })
 
-export class MiniProfile extends Survey implements OnDestroy {
+export class MiniProfile  implements OnDestroy {
   localState = {
     dob: '',
     nationality: '',
@@ -174,4 +174,3 @@ export class MiniProfile extends Survey implements OnDestroy {
  * For help or questions please contact us at @AngularClass on twitter
  * or our chat on Slack at https://AngularClass.com/slack-join
  */
-
