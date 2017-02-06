@@ -16,7 +16,7 @@ export class ProgressService {
 
 
   initiate(id){
-    if(id != '') {
+    if(id) {
       console.log(id)
       const PROGRESS_URL = '/users/' + id + '/progress';
 

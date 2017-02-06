@@ -14,7 +14,7 @@ export class NavigatorService {
   public routey = Routey;
   public naviDone = new Subject();
   constructor( private router: Router, private appState: AppState, private completed: ProgressService) {
-    this.appState.set('isLoading', true);
+    this.appState.set('isLoading', false);
     console.log("navigator")
     completed.isReady.subscribe(stuff=>{
       console.log(stuff)
