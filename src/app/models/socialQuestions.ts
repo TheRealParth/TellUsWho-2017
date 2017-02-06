@@ -22,7 +22,7 @@ export const TAGCOLORS = List<COLOR>([
     "#EFA554",
     "#6C56ED",
     "#EA57CE",
-    "#A2F4B1"
+    "#A2F4B1",
     "#efb9c6",
     "#eddeb9",
     "#e1c2f2",

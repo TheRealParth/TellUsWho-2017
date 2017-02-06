@@ -111,12 +111,12 @@ export const TAGS = List<TAG>([
   },
   {
     name:'Study Buddies',
-    color:'purple'
+    color:'purple',
     active:false
   },
   {
     name:'NJIT housemates',
-    color:'red'
+    color:'red',
     active:false
   }
 ]);
