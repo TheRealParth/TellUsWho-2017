@@ -25,7 +25,9 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { MiniProfile } from './UI/mini-profile.component';
+import { LandingPage } from './landingpage'
 import { NoContentComponent } from './no-content';
+import { BackgroundInfoComponent } from './basicInfo/backgroundInfo.component';
 
 
 import '../styles/styles.scss';
@@ -50,7 +52,9 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    MiniProfile
+    MiniProfile,
+    LandingPage,
+    BackgroundInfoComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

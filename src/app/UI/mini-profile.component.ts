@@ -65,7 +65,7 @@ import {InterestService} from "../services/interests.service";
 
 })
 
-export class MiniProfile  implements OnDestroy {
+export class MiniProfile extends Survey implements OnDestroy {
   localState = {
     dob: '',
     nationality: '',

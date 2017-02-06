@@ -16,7 +16,7 @@ import {bginfoQuestions} from "../options/surveyQuestions";
 
 @Component({
   selector: "background-info",
-  providers: [Http, HTTP_PROVIDERS, OptionService],
+  providers: [OptionService],
   template: `
 <h2 style="font-size: 1.5em;
     text-align: center;
@@ -26,9 +26,9 @@ import {bginfoQuestions} from "../options/surveyQuestions";
    ">In this section, you will build your matching profile<br> located on the right hand side of the screen.<br>
     Please answer the questions below </h2>
       <div class="barFix">
-          
+
         <div id="main" class="to-the-left">
-        
+
         <div class="formBoxWrapper">
             <div   class="formBox flexTopLeft">
                 <label class="hideToggle" for="DOB"> What's your date of birth?</label> <br>
@@ -42,30 +42,30 @@ import {bginfoQuestions} from "../options/surveyQuestions";
                <br>
             <autocomplete [oldChoice]="localState.gender" (onChosen)="setAnswer('gender', $event);" [placeholder]="'Select a gender'" [options]="options.genderOptions"  ></autocomplete>
             </div>
-                 
+
           </div>
           <div class="formBoxWrapper">
            <div class="formBox" >
             <label > What is your nationality?</label> <br>
             <autocomplete  [oldChoice]="localState.nationality" [options]="options.nationalityOptions" [placeholder]="'Select a nationality'" (onChosen)="setTwice('nationality', $event);"> </autocomplete>
           </div>
-      
+
            <div class="formBox" >
             <label class="right"> What is your native language?</label> <br>
             <autocomplete [oldChoice]="localState.nativeLanguage"  id="spokenLanguage" [options]="options.languageOptions" [placeholder]="'Select a native language'" (onChosen)="setTwice('nativeLanguage', $event)"> </autocomplete>
           </div>
-      
-        </div>    
-      
+
+        </div>
+
           <div class="formBoxWrapper">
-      
+
             <div class="formBox" >
                 <label class="right"> What other languages do you speak?</label> <br>
           <multiple-select (setDefaults)="localState.otherLanguages" [oldChoice]="localState.otherLanguages" (onChosen)="setAnswers('otherLanguages', $event)" [options]="options.languageOptions" [placeholder]="'Select other languages'" ></multiple-select>
-            </div>     
-        </div>     
-      
-      
+            </div>
+        </div>
+
+
       <div class="formBoxWrapper">
             <div class="formBox nodrop" >
                 <label> Where did you grow up?</label> <br>
@@ -73,20 +73,20 @@ import {bginfoQuestions} from "../options/surveyQuestions";
                   <div class="flexThird flexTopLeft flexBottomLeft">
                     <input type="text" class="mySelect flexThird flexTopLeft flexBottomLeft cityTown" (blur)="setAnswer('grownCity', $event.target.value)" [(ngModel)]="localState.grownCity"  placeholder="City/Town" />
                   </div>
-      
+
             <div class="flexThird" >
                <br>
               <autocomplete class="state" [placeholder]="'State'" [oldChoice]="localState.grownState" (onChosen)="setAnswer('grownState', $event);" [options]="options.stateOptions" ></autocomplete>
             </div>
-      
-      
+
+
             <div class="flexThird flexTopRight flexBottomRight country">
                <br>
             <autocomplete class="country" [oldChoice]="localState.grownCountry" (onChosen)="setAnswer('grownCountry', $event);" [placeholder]="'Country'" [options]="options.countryOptions" ></autocomplete>
             </div>
             </div>
-        </div>     
-      </div>     
+        </div>
+      </div>
       <div class="formBoxWrapper">
             <div class="formBox nodrop" style="height: auto">
                 <label> Where do you currently live?</label> <br>
@@ -96,65 +96,65 @@ import {bginfoQuestions} from "../options/surveyQuestions";
             <autocomplete style="margin-top: -20px" *ngIf="(localState.onCampus == 'On Campus')" [oldChoice]="localState.campusHousing"  id="spokenLanguage" [options]="options.campusOptions" [placeholder]="'Select a your campus housing'" (onChosen)="setTwice('campusHousing', $event)"> </autocomplete>
                 <div style="margin-top: -20px"  *ngIf="(localState.onCampus == 'Off Campus')" class="flexThirdWrapper">
                   <div class="flexThird flexTopLeft flexBottomLeft">
-                  
+
                     <input (keyup)="setTwice('currentCity', $event.target.value, false)"(blur)="setAnswer('currentCity', $event.target.value)" type="text" class="mySelect flexThird flexTopLeft flexBottomLeft cityTown" [(ngModel)]="localState.currentCity" placeholder="City/Town" />
                   </div>
-      
+
                     <div class="flexThird" >
                        <br>
                   <autocomplete class="state" [oldChoice]="localState.currentState" [placeholder]="'State'" [options]="options.stateOptions" (onChosen)="setTwice('currentState', $event)"></autocomplete>
                     </div>
-              
+
                     <div class="flexThird flexTopRight flexBottomRight country">
                        <br>
                     <autocomplete class="country" [oldChoice]="localState.currentCountry" [placeholder]="'Country'" [options]="options.countryOptions" (onChosen)="setTwice('currentCountry', $event)" ></autocomplete>
                 </div>
             </div>
-        </div>     
-      </div>     
+        </div>
+      </div>
             <div class="formBoxWrapper">
             <div class="formBox" >
                 <label > Who do you currently live with?</label> <br>
                     <autocomplete [oldChoice]="localState.liveWith" [placeholder]="'Country'" [options]="options.livewithOptions" (onChosen)="setAnswer('liveWith', $event)" ></autocomplete>
                   </div>
-      
+
             </div>
       <div class="formBoxWrapper">
-      
+
        <div class="formBox" >
         <label > What is your relationship status?</label> <br>
-        <autocomplete 
+        <autocomplete
         [oldChoice]="localState.relationshipStatus"
-        [placeholder]="'Select your relationship status'" 
+        [placeholder]="'Select your relationship status'"
         [options]="options.relationshipOptions"
         (onChosen)="setAnswer('relationshipStatus', $event)"></autocomplete>
       </div>
-      
+
        <div class="formBox" >
         <label class="right"> What is your sexual identification?</label> <br>
-        <autocomplete 
+        <autocomplete
         [oldChoice]="localState.sexualIdentification"
-        [placeholder]="'Select your sexual identification'" 
+        [placeholder]="'Select your sexual identification'"
         [options]="options.orientationOptions"
         (onChosen)="setAnswer('sexualIdentification', $event)"></autocomplete>
       </div>
-      
+
         </div>
-                  
+
       <div class="formBoxWrapper">
         <div class="formBox flexBottomLeft flexBottomRight">
           <label> What is your ethnicity? </label> <br>
         <autocomplete
         [oldChoice]="localState.ethnicity"
-        [placeholder]="'Select your ethnicity'" 
+        [placeholder]="'Select your ethnicity'"
         [options]="options.ethnicityOptions"
         (onChosen)="setAnswer('ethnicity', $event)"></autocomplete>
         </div>
-        
+
       </div>
         </div>
       </div>
-      
+
       <div class="blockContainer">
           <a  (click)="nextPage();" class='to-the-left' id="navigator">Continue</a>
       </div>
