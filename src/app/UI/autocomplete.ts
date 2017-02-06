@@ -1,23 +1,23 @@
-import {Component, Input, Output, OnInit, ElementRef} from '@angular/core';
-import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
+import {Component,EventEmitter, Input, Output, OnInit, ElementRef} from '@angular/core';
+
 
 @Component({
   selector: "autocomplete",
   host: {
     '(document:click)': 'onClick($event)',
   },
-  template: `		        
+  template: `
          <div class="awesomplete triangle">
 
-         <input 
+         <input
                 [attr.placeholder]="placeholder"
                 (keyup)="filter($event); "
-                (keydown)="arrowDown($event)" 
-                (focus)="checkBlur(false); " 
+                (keydown)="arrowDown($event)"
+                (focus)="checkBlur(false); "
                 (blur)="checkBlur(true);  throwBlur()"
                 [value] = "currentVal"
                 class="dropdown-input"  autocomplete="off" aria-autocomplete="list">
-                
+
           <div class="ddHolder" [hidden]="!canOpen()">
          <ul >
           <li *ngFor="let result of results; let i = index;" [class.active]=" i == activeIndex " (mouseenter)="activeIndex=i"  (mousedown)="choose($event.target.innerText)">
@@ -25,11 +25,11 @@ import {EventEmitter} from "@angular/platform-browser-dynamic/src/facade/async";
           </li>
         </ul>
         </div>
-        
+
         <button (mousedown)="checkBlur(false);" class="dropdown-btn" type="button"><span class="caret"></span></button>
         </div>
-      
-        
+
+
 `,
 })
 
@@ -42,7 +42,7 @@ export class Autocomplete implements OnInit{
   results: string[];
 
   activeIndex: number = 0;
-  @Input('oldChoice') currentVal: string = '';
+  @Input('oldChoice') currentVal: string;
   @Input('placeholder') placeholder: string;
   @Input('options') options: string[];
   @Output() onChosen = new EventEmitter<string>();
@@ -154,4 +154,3 @@ export class Autocomplete implements OnInit{
     }
   }
 }
-

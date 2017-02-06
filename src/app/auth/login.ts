@@ -7,11 +7,10 @@ import {AuthMethods} from "angularfire2";
 import {AuthProviders} from "angularfire2";
 
 @Component({
-  moduleId: module.id,
   selector: 'login',
   template: `
-  
-  <div class="barFix">    
+
+  <div class="barFix">
 	<div id="main" class="auth"  style="padding:20px;">
 	<h1>Tell Us Who Login</h1>
 	<div >
@@ -67,7 +66,7 @@ export class Login {
           this.router.navigateByUrl(this.authService.redirectUrl);
         } else {
           this.router.navigateByUrl('background-info');
-        }  
+        }
       });
   }
 }

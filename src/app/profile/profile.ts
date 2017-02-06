@@ -18,7 +18,7 @@ import {AuthService} from "../services/auth.service";
 import {InterestService} from "../services/interests.service";
 @Component({
   selector: "background-info",
-  providers: [Http, HTTP_PROVIDERS, OptionService],
+  providers: [OptionService],
   template: `
 <h2 style="font-size: 1.5em;
     text-align: center;
@@ -27,7 +27,7 @@ import {InterestService} from "../services/interests.service";
     margin-bottom: 20px;
    ">You're almost there! <br> To complete your profile please upload a profile picture.<br> If you need to edit anything you can click the pencil icon <br> next to each section.</h2>
       <div class="barFix">
-          
+
         <div id="main" class="profileMain to-the-left">
         <div *ngIf="authService.imageUrl" class="profilePicMain" [ngStyle]="{'background-image' : 'url(' + authService.imageUrl + ')'}"><span class="label no-highlight">Upload</span></div>
         <h1 class="nameTitle">{{authService.displayName.split(' ')[0]}} <span> {{authService.displayName.split(' ')[1]}}</span></h1>
@@ -105,9 +105,9 @@ import {InterestService} from "../services/interests.service";
             <span  *ngFor="let interest of myInterests" class="interest-tag">{{interest}}</span>
 </div>
           </div>
-        </div>          
+        </div>
       </div>
-      
+
       <div class="blockContainer">
           <a  (click)="nextPage();" class='to-the-left' id="navigator">Continue</a>
       </div>

@@ -7,11 +7,10 @@ import {AuthMethods} from "angularfire2";
 import {AuthProviders} from "angularfire2";
 
 @Component({
-  moduleId: module.id,
   selector: 'signup',
   template: `
-  
-  <div class="barFix">    
+
+  <div class="barFix">
 	<div id="main" class="auth"  style="padding:20px;">
 	<h1>Welcome</h1>
 	<div >
@@ -34,7 +33,7 @@ import {AuthProviders} from "angularfire2";
     <button  (click)="facebookLogin()">facebook</button>
   <button style="margin-right: 20px;margin-bottom: 20px; text-align: center; font-size: 17px; padding:0px; width: 100px; height: 50px;" id="navigator"  (click)="signup()">Signup</button>
   </div>
-  
+
   </div>
   <div style="width: 100%; padding-right: 30px; padding-left: 30px; display: inline-flex; justify-content: space-between">
   <span><a (click)="router.navigateByUrl('forgot')">Forgot?</a></span><span><a (click)="router.navigateByUrl('login')">Login</a></span>

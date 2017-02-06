@@ -5,11 +5,10 @@ import {AppState} from "../app.service";
 import {Router} from "@angular/router";
 
 @Component({
-  moduleId: module.id,
   selector: 'forgot',
   template: `
-  
-  <div class="barFix">    
+
+  <div class="barFix">
 	<div id="main"  class="auth"  style="padding:20px;">
 	<h1>Tell Us Who Login</h1>
 	<div >
@@ -20,7 +19,7 @@ import {Router} from "@angular/router";
     <div style="width: 100%; text-align: right;">
   <button style="margin-right: 20px;margin-bottom: 20px; text-align: center; font-size: 17px; padding:0px; width: 100px; height: 50px;" id="navigator"  (click)="forgot()">Send</button>
   </div>
-  
+
   </div>
 <div style="width: 100%; padding-right: 30px; padding-left: 30px; display: inline-flex; justify-content: space-between">
   <span><a (click)="router.navigateByUrl('login')">Login</a></span><span><a (click)="router.navigateByUrl('signup')">Signup</a></span>

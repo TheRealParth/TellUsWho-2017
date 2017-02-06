@@ -25,10 +25,32 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { MiniProfile } from './UI/mini-profile.component';
+import { Autocomplete } from './UI/autocomplete';
+
 import { LandingPage } from './landingpage'
 import { NoContentComponent } from './no-content';
 import { BackgroundInfoComponent } from './basicInfo/backgroundInfo.component';
+import { SchoolAndWorkComponent } from './basicInfo/schoolAndWork.component';
+import { SenseOfCommunityComponent } from './basicInfo/senseOfCommunity.component';
+import { SociabilityComponent } from './basicInfo/sociability.component';
+import { WellbeingComponent } from './basicInfo/wellbeing.component';
 
+import { ProfileComponent } from './profile/profile'
+
+import { InterestsComponent } from './interests/interests.component'
+import { GroupMethodComponent } from './interests/groupMethod.component'
+import { GroupComponent } from './interests/group.component'
+import { ExpertiseComponent } from './interests/levelOfExpertise.component'
+import { PassionComponent } from './interests/levelOfPassion.component'
+import { PlacesComponent } from './interests/places.component'
+import { WillingToTeachComponent } from './interests/willingToTeach.component'
+import { LookingForOthersComponent } from './interests/lookingForOthers.component'
+
+import { SocialComponent } from './social/social.component'
+
+import { Login } from './auth/login'
+import { SignUp } from './auth/signup'
+import { Forgot } from './auth/forgot'
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -52,15 +74,36 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+
     MiniProfile,
     LandingPage,
-    BackgroundInfoComponent
+    Login,
+    SignUp,
+    Forgot,
+    Autocomplete,
+    BackgroundInfoComponent,
+    SchoolAndWorkComponent,
+    SenseOfCommunityComponent,
+    SociabilityComponent,
+    WellbeingComponent,
+
+    ProfileComponent,
+
+    InterestsComponent,
+    GroupMethodComponent,
+    GroupComponent,
+    ExpertiseComponent,
+    PassionComponent,
+    LookingForOthersComponent,
+    PlacesComponent,
+    WillingToTeachComponent,
+    SocialComponent,
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
