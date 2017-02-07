@@ -80,7 +80,7 @@ export const CONTACTS = List<Contact>([
     email: 'rosemary.porter@example.com',
     phone: '(497) 160-9776',
     imageUrl: 'http://api.randomuser.me/portraits/women/34.jpg',
-    hasDropped: false
+    hasDropped: false,
     groups: []
   },
   {

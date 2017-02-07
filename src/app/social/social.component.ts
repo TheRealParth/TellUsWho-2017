@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
-import {SOCIALGROUPQUESTIONS} from "../models/socialQuestions";
-import {TAGCOLORS} from "../models/socialQuestions";
-import {ProfileService} from "../services/profile.service";
-import {ContactList} from '../UI/contacts-list';
-import {TagList} from '../UI/tags-list';
-import {DND_DIRECTIVES} from "ng2-dnd";
-import {Dnd} from "ng2-dnd";
+import { Component } from '@angular/core';
+import { SOCIALGROUPQUESTIONS } from "../models/socialQuestions";
+import { TAGCOLORS } from "../models/socialQuestions";
+import { ProfileService } from "../services/profile.service";
+import { ContactList } from '../UI/contacts-list';
+import { TagList } from '../UI/tags-list';
+import { DND_DIRECTIVES } from "ng2-dnd";
+import { Dnd } from "ng2-dnd";
 @Component({
   selector: 'social',
   template: `

@@ -28,7 +28,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { MiniProfile } from './UI/mini-profile.component';
 
-import { LandingPage } from './landingpage'
+import { LandingPage } from './landingpage';
 import { NoContentComponent } from './no-content';
 import { BackgroundInfoComponent } from './basicInfo/backgroundInfo.component';
 import { SchoolAndWorkComponent } from './basicInfo/schoolAndWork.component';
@@ -36,44 +36,41 @@ import { SenseOfCommunityComponent } from './basicInfo/senseOfCommunity.componen
 import { SociabilityComponent } from './basicInfo/sociability.component';
 import { WellbeingComponent } from './basicInfo/wellbeing.component';
 
-import { ProfileComponent } from './profile/profile'
+import { ProfileComponent } from './profile/profile';
 
-import { InterestsComponent } from './interests/interests.component'
-import { GroupMethodComponent } from './interests/groupMethod.component'
-import { GroupComponent } from './interests/group.component'
-import { ExpertiseComponent } from './interests/levelOfExpertise.component'
-import { PassionComponent } from './interests/levelOfPassion.component'
-import { PlacesComponent } from './interests/places.component'
-import { WillingToTeachComponent } from './interests/willingToTeach.component'
-import { LookingForOthersComponent } from './interests/lookingForOthers.component'
+import { InterestsComponent } from './interests/interests.component';
+import { GroupMethodComponent } from './interests/groupMethod.component';
+import { GroupComponent } from './interests/group.component';
+import { ExpertiseComponent } from './interests/levelOfExpertise.component';
+import { PassionComponent } from './interests/levelOfPassion.component';
+import { PlacesComponent } from './interests/places.component';
+import { WillingToTeachComponent } from './interests/willingToTeach.component';
+import { LookingForOthersComponent } from './interests/lookingForOthers.component';
 
-import { SocialComponent } from './social/social.component'
+import { SocialComponent } from './social/social.component';
 
-import { Login } from './auth/login'
-import { SignUp } from './auth/signup'
-import { Forgot } from './auth/forgot'
+import { Login } from './auth/login';
+import { SignUp } from './auth/signup';
+import { Forgot } from './auth/forgot';
 
-import { Autocomplete } from './UI/autocomplete'
-import { MultipleSelect } from './UI/multiple-select'
-import { ChooseFive } from './UI/choose-five'
-import { Chosen } from './UI/chosen'
-import { InterestItem } from './UI/interest-item'
-import { ContactList } from './UI/contacts-list'
-import { TagList } from './UI/tags-list'
-import { TopNav } from './UI/topnav'
-import { InterestWithCategory } from './UI/interestWithCategory'
-import { MiniProfile } from './UI/mini-profile.component'
-import { MapSearch } from './UI/MapSearch'
+import { Autocomplete } from './UI/autocomplete';
+import { MultipleSelect } from './UI/multiple-select';
+import { ChooseFive } from './UI/choose-five';
+import { Chosen } from './UI/chosen';
+import { InterestItem } from './UI/interest-item';
+import { ContactList } from './UI/contacts-list';
+import { TagList } from './UI/tags-list';
+import { TopNav } from './UI/topnav';
+import { InterestWithCategory } from './UI/interestWithCategory';
+import { MapSearch } from './UI/MapSearch';
 
-import { AngularFireModule } from 'angularfire2';
 export const firebaseConfig = {
-  apiKey: "AIzaSyD-v360ct6TwFbj1PeCwF_UoGCPDunALAA",
-  authDomain: "telluswho-59788.firebaseapp.com",
-  databaseURL: "https://telluswho-59788.firebaseio.com",
-  storageBucket: "telluswho-59788.appspot.com",
-  messagingSenderId: "517726309983"
+  apiKey: 'AIzaSyD-v360ct6TwFbj1PeCwF_UoGCPDunALAA',
+  authDomain: 'telluswho-59788.firebaseapp.com',
+  databaseURL: 'https://telluswho-59788.firebaseio.com',
+  storageBucket: 'telluswho-59788.appspot.com',
+  messagingSenderId: '517726309983'
 };
-
 
 import '../styles/styles.scss';
 import '../styles/headings.css';

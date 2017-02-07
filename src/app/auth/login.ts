@@ -32,8 +32,8 @@ import {AuthProviders} from "angularfire2";
 </div></div>
 `,
 })
-export class Login {
 
+export class Login {
   ucid: string = '';
   password: string = '';
   userData: any;

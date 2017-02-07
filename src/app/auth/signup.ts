@@ -23,7 +23,7 @@ import {AuthProviders} from "angularfire2";
     <br>
     <input [(ngModel)]="email" type="email" placeholder="Email">
     <br>
-    <input [(ngModel)]="contact" type="number" placeholder="Phone Number">
+    <input [(ngModel)]="contact" type="tel" pattern="^\d{4}-\d{3}-\d{4}$" placeholder="Phone Number">
     <br>
     <input [(ngModel)]="password"  type="password" placeholder="Password">
     <br>

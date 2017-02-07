@@ -10,13 +10,13 @@ import {
 // Environment Providers
 import { ProgressService } from './services/progress.service'
 import { AppState } from './app.service';
-import {AuthGuard} from "./services/authguard-service";
-import {NoAuthGuard} from "./services/no-authguard-service";
-import {AuthService} from "./services/auth.service";
-import {ProgressService} from "./services/progress.service";
-import {NavigatorService} from "./services/navigator.service";
-import {QuestionsService} from "./services/questions-service";
-import {InterestService} from "./services/interests.service";
+import { AuthGuard } from './services/authguard-service';
+import { NoAuthGuard } from './services/no-authguard-service';
+import { AuthService } from './services/auth.service';
+import { ProgressService } from './services/progress.service';
+import { NavigatorService } from './services/navigator.service';
+import { QuestionsService } from './services/questions-service';
+import { InterestService } from './services/interests.service';
 
 
 let PROVIDERS: any[] = [

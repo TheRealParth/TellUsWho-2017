@@ -1,5 +1,5 @@
-import {Component, ViewEncapsulation, Input, Output, EventEmitter} from '@angular/core';
-import {NavigatorService} from "../services/navigator.service";
+import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { NavigatorService } from "../services/navigator.service";
 /*
  * App Component
  * Top Level Component
