@@ -101,6 +101,7 @@ export class AuthService {
     .map(response => response.json())
     .toPromise()
     .then((res)=>{
+        console.log(res)
         localStorage.setItem('user', JSON.stringify(res.user));
         localStorage.setItem('userId', (res.user.id));
         this.progressService.initiate(res.user.id)

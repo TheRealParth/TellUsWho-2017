@@ -166,7 +166,7 @@ import {bginfoQuestions} from "../options/surveyQuestions";
 export class BackgroundInfoComponent extends Survey implements OnDestroy{
   title = "Background Info"
   router: Router;
-  localState = {
+  public localState = {
     dob: '',
     gender: '',
     nationality: '',
@@ -187,8 +187,8 @@ export class BackgroundInfoComponent extends Survey implements OnDestroy{
   }
   SUBS: any = {};
 
-  constructor(private miniProfile: MiniProfileService, private questions: QuestionsService, private options: OptionService,  private navigator: NavigatorService, private appState: AppState) {
-    super(questions, this.localState);
+  constructor(localState:String,private miniProfile: MiniProfileService, private questions: QuestionsService, private options: OptionService,  private navigator: NavigatorService, private appState: AppState) {
+    super(questions, {localState});
     this.appState.set('section', 'basic');
     this.appState.set('page', 'backgroundInfo');
 

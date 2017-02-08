@@ -13,8 +13,12 @@ import { Dnd } from "ng2-dnd";
 <div class="contactsContainer" style="margin-top: 13%;">
   <div class="contacts">
     <ul class="socialTabs nav nav-pills nav-justified">
-      <li role="contacts" [class.active]="tabSelected=='contacts'" (click)="tabSelected='contacts'"><a>Contacts</a></li>
-      <li role="tags" [class.active]="tabSelected=='tags'" (click)="tabSelected='tags'" *ngIf="currentGroup=='arrange'"><a>Tags</a></li>
+      <li role="contacts" [class.active]="tabSelected=='contacts'" (click)="tabSelected='contacts'">
+        <a>Contacts</a>
+      </li>
+      <li role="tags" [class.active]="tabSelected=='tags'" (click)="tabSelected='tags'" *ngIf="currentGroup=='arrange'">
+        <a>Tags</a>
+      </li>
     </ul>
     <contact-list *ngIf="tabSelected=='contacts'"></contact-list>
     <tag-list *ngIf="tabSelected=='tags'" (tagActivated)="setTag($event)" [tagsArray] = 'tagsArray' ></tag-list>
@@ -94,15 +98,15 @@ export class SocialComponent {
     this.zoom = x;
   }
   getTagArray(orgData, intData){
-    var index = 0
-    for(var i in this.socialGrpQuestions._tail.array){
+    let index = 0
+    for(let i in this.socialGrpQuestions._tail.array){
         this.tagsArray.push({
           group:this.socialGrpQuestions._tail.array[i].question,
           color:this.colors._tail.array[i],
           type:'social groups',
           symbol:'tagCircle',
           active:false
-      })
+      });
       index = i;
     }
     for(var i in orgData){
@@ -180,8 +184,12 @@ export class SocialComponent {
   addContact(e){
     console.log(e.mouseEvent.target);
     var zoomMultiplier = 1;
-    if(this.zoom == 0) zoomMultiplier = 1;
-    else zoomMultiplier = this.zoom;
+    if(this.zoom == 0){
+      zoomMultiplier = 1;
+    }
+    else{
+     zoomMultiplier = this.zoom;
+    }
     if(!e.dragData.hasDropped){
 
 

@@ -63,8 +63,10 @@ export class Login {
       .then(()=>{
         this.appState.set('authError', '');
         if(this.authService.redirectUrl) {
+          console.log("if")
           this.router.navigateByUrl(this.authService.redirectUrl);
         } else {
+          console.log("else")
           this.router.navigateByUrl('background-info');
         }
       });
